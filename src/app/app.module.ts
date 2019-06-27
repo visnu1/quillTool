@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { QuillComponent } from './quill/quill.component';
+
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuillComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]
