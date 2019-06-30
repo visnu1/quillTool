@@ -1,5 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import * as $ from 'jquery';
 import Quill from 'quill';
+import Inline from 'quill/blots/inline'
+
+class BoldBlot extends Inline {
+  blotname = 'bold';
+  tagName = 'strong';
+
+}
+
+
 
 @Component({
   selector: 'app-quill',
@@ -35,13 +45,24 @@ export class QuillComponent implements OnInit {
 
     var Font = Quill.import('formats/font');
     // We do not add Sans Serif since it is the default
-    Font.whitelist = ['inconsolata', 'roboto', 'mirza', 'arial', 'georgia', 'tahoma', 'verdana', 'trebuchet', 'lato-regular', 'times-new-roman'];
+    Font.whitelist = ['inconsolata', 'roboto', 'mirza', 'arial', 'georgia', 'tahoma', 'verdana', 'trebuchet', 'lato-regular', 'times-new-roman', 'indie'];
     Quill.register(Font, true);
-
     // var quill = new Quill('#editor', {
     //   modules: { toolbar: true },
     //   theme: 'snow'
     // })
+
+    var quill = new Quill('#editor-container');
+
+    $('#bold-button').click(function () {
+      quill.format('bold', true);
+    });
+    $('#italic-button').click(function () {
+      quill.format('italic', true);
+    });
+
+
+
   }
 
 }
